@@ -1,23 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the EditorJFrame.
- */
-
-/*try {
-        // Set metl look and feel
-        UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
-
-        // Set theme to ocean
-        MetalLookAndFeel.setCurrentTheme(new OceanTheme());
-        }
-        catch (Exception e) {
-
-        } */
-
-//to do
-//make options menu 
-
 package fortest;
 
 import java.awt.Color;
@@ -49,8 +29,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
- *
- * @author 161067
+ * @author Giorgos Lydiotis
  */
 public class EditorJFrame extends JFrame implements ActionListener { 
     //Frame 
@@ -241,7 +220,6 @@ public class EditorJFrame extends JFrame implements ActionListener {
                     int temp;
                     boolean paragraph=true;
                     while ((temp=br.read())!=-1) { 
-                        //System.out.println((char)fr.read());
                         if(temp!=' '){
                             letterCounterNoSpace++;
                             if(temp=='\n'){
@@ -249,7 +227,6 @@ public class EditorJFrame extends JFrame implements ActionListener {
                                 //checks if new line and not new paragraph, turns false if new line, will turn true if the next character is 
                                 //new line again which will mean new paragraph
                                 paragraph=!paragraph;
-                                //αν εχει newline χωρις χαρακτηρα το μετραει ως λεξη
                                 
                                 wordCounter++;
                                 if(paragraph){
@@ -297,7 +274,7 @@ public class EditorJFrame extends JFrame implements ActionListener {
         }else if(actionCommand.equals("Select All")){
             textArea.selectAll();
         }else if(actionCommand.equals("Time/Date")){
-            //το format ειναι ιδιο με του Notepad
+            //same format as Notepad of Windows 10
             textArea.insert(java.time.LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm a dd-MM-yyyy"))+"",
                             textArea.getCaretPosition());
         }else if(actionCommand.equals("About TextEditor")){
